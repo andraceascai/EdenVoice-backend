@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "mongodbconnect.js",
+  "type": "module",
   "scripts": {
-    "start": "node app.js"
+    "start": "node mongodbconnect.js"
   },
   "keywords": [],
   "author": "",
