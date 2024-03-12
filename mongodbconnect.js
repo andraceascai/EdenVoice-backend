@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import express from 'express'
 import bodyParser from 'body-parser';
 import cors from 'cors';
+import path from 'path';
 
 const app = express();
 
@@ -39,6 +40,10 @@ mongoose.connect(connectionString)
 
   //ROUTES
 
+  app.get('/', (req,res) => {
+    res.sendFile(path.join(__dirname,'hostingstart.html'))
+  })
+
   app.post('/api/posts', async(req,res)=>{
     try {
       const newPost = new Post({
@@ -58,7 +63,7 @@ mongoose.connect(connectionString)
     }
   })
 
-  const PORT = process.env.PORT || 3001
+  const PORT = process.env.PORT || 3000
   app.listen(PORT, ()=>{
     console.log(`Server is running on port ${PORT}`);
   })
