@@ -1,4 +1,0 @@
-{
-    "appService.defaultWebAppToDeploy": "/subscriptions/0b0a8aa8-5fb4-4985-bab2-cfdf21a18f46/resourceGroups/aceascai-test-dev-rg/providers/Microsoft.Web/sites/EdenVoice-backend",
-    "appService.deploySubpath": "."
-}
