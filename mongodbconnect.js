@@ -55,12 +55,10 @@ mongoose.connect(connectionString)
         votes: 0,
         whoVoted: []
       });
-      newPost.save()
-      .then((savedPost) => {
-      console.log('Document inserted successfully:', savedPost);
-  })
+      const savedPost = await newPost.save();
+      res.status(201).json(savedPost);
     } catch (error) {
-      console.error('Error inserting document:', error);
+      res.status(500).json({ message: error.message });
     }
   })
 
