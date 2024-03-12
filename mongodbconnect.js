@@ -45,6 +45,15 @@ mongoose.connect(connectionString)
     res.sendFile(path.join(__dirname,'hostingstart.html'))
   })
 
+  app.get('/api/posts', async(req,res)=>{
+    try {
+      const posts = await Post.find();
+      res.status(200).json(posts)
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  })
+
   app.post('/api/posts', async(req,res)=>{
     try {
       const newPost = new Post({
