@@ -3,6 +3,7 @@ import express from 'express'
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 const app = express();
 
@@ -39,7 +40,7 @@ mongoose.connect(connectionString)
   app.use(bodyParser.json());
 
   //ROUTES
-
+  const __dirname = path.dirname(fileURLToPath(import.meta.url))
   app.get('/', (req,res) => {
     res.sendFile(path.join(__dirname,'hostingstart.html'))
   })
