@@ -41,7 +41,12 @@ mongoose.connect(connectionString)
 
   //ROUTES
 
-  app.get('/', async(req,res)=>{
+   const __dirname = path.dirname(fileURLToPath(import.meta.url))
+   app.get('/', (req,res) => {
+     res.sendFile(path.join(__dirname,'hostingstart.html'))
+   })
+
+  app.get('/api/posts', async(req,res)=>{
     try {
       const posts = await Post.find();
       res.status(200).json(posts)
